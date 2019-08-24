@@ -127,15 +127,14 @@ def create_date_range(begin_str, end_str, exclude=set()):
     end = get_date_obj(end_str)
     if end < curr:
         raise InvalidDateRangeException(curr, end)
-    ret = list()
-    weekdays, weekends = 0, 0
+    ret, weekdays, weekends = [], [], []
     while curr <= end:
         if curr not in exclude:
             ret.append(curr)
-            if curr.weekday() < 5:
-                weekdays += 1
+            if curr.weekday() == 4 or curr.weekday() == 5:
+                weekends.append(curr)
             else:
-                weekends += 1
+                weekdays.append(curr)
         curr = curr + dayiter
     return (ret, weekdays, weekends)
 
@@ -188,142 +187,138 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None):
     num_ras = len(ras)
     break_, _, _ = create_date_range(
         break_start, break_end) if break_start != None and break_end != None else set()
-    duty_range, num_weekdays, num_weekends = create_date_range(
+    duty_range, weekdays, weekends = create_date_range(
         start, end, break_)
-    print(num_ras)
-    print(num_weekdays)
-    print(num_weekends)
 
     tracker, schedule = dict(), dict()
     for ra in ras:
         tracker[ra.name] = [0, 0] # Track how many days of weekdays and weekends
 
-    for curr in duty_range:
-        day = curr.weekday()
-        if day != 4 and day != 5:  # weekday
-            ind = 0
-        else:  # weekend
-            ind = 1
+    # Split to do weekends first and then weekday
+    
+    
+    for curr in weekends:
+        # For weekends, 1 Bradford and 1 Homewood
+        bradford_available_ras = []
+        homewood_available_ras = []
+        for ra in ras:
+            if curr not in ra.unv_irregular:
+                if ra.building == 'homewood':
+                    homewood_available_ras.append(ra)
+                elif ra.building == 'bradford':
+                    bradford_available_ras.append(ra)
 
-        if ind == 0:
-            # Generate a list of all available RAs
-            available_ras = []
-            for ra in ras:
-                if curr not in ra.unv_irregular:
-                    available_ras.append(ra)
-            
-            # Get the one with the least amount so far 
-            selected_ras = []
-            min_val = 100 # RAs should not have this many duties
-            for ra in available_ras:
-                if tracker[ra.name][ind] < min_val:
-                    # Reset selected
-                    selected_ras = []
-                    min_val = tracker[ra.name][ind]
-                    selected_ras.append(ra)
-                elif tracker[ra.name][ind] == min_val:
-                    selected_ras.append(ra)
+        # Selected RA for each building
+        selected_bradford_ras = []
+        min_val = 100 # RAs should not have this many duties
+        for ra in bradford_available_ras:
+            if tracker[ra.name][1] < min_val:
+                # Reset selected
+                selected_bradford_ras = []
+                min_val = tracker[ra.name][1]
+                selected_bradford_ras.append(ra)
+            elif tracker[ra.name][1] == min_val:
+                selected_bradford_ras.append(ra)
 
-            # Assign the date
-            selected = None
-            if len(selected_ras) == 0:
-                print ('%s - Couldn\'t resolve' % str(curr))
-                # Select at random for now
-                chosen_by_god = rand.randint(0, num_ras - 1)
-                selected = ras[chosen_by_god]
+        selected_homewood_ras = []
+        min_val = 100 # RAs should not have this many duties
+        for ra in homewood_available_ras:
+            if tracker[ra.name][1] < min_val:
+                # Reset selected
+                selected_homewood_ras = []
+                min_val = tracker[ra.name][1]
+                selected_homewood_ras.append(ra)
+            elif tracker[ra.name][1] == min_val:
+                selected_homewood_ras.append(ra)
 
-            elif len(selected_ras) == 1:
-                # Just get this person out
-                selected = selected_ras[0]
+        # Assign people
+        homewood_selected = None
+        bradford_selected = None
 
-            else:
-                # Many RAs with the same number of empty dates. Chosen by god
-                chosen_by_god = rand.randint(0, len(selected_ras) - 1)
-                selected = selected_ras[chosen_by_god]
-            schedule[curr] = selected.name
-            tracker[selected.name][ind] += 1 
+        if len(selected_homewood_ras) == 0:
+            print ('%s - Couldn\'t resolve for Homewood' % str(curr))
+            print('We are fuckeddddddd')
+            # Select at random for now
+            chosen_by_god = rand.randint(0, num_ras - 1)
+            homewood_selected = ras[chosen_by_god]
+
+        elif len(selected_homewood_ras) == 1:
+            # Just get this person out
+            homewood_selected = selected_homewood_ras[0]
+
+        else:
+            # Many RAs with the same number of empty dates. Chosen by god
+            chosen_by_god = rand.randint(0, len(selected_homewood_ras) - 1)
+            homewood_selected = selected_homewood_ras[chosen_by_god]
         
-        else: # Generate for the weekends
-            # For weekends, 1 Bradford and 1 Homewood
-            bradford_available_ras = []
-            homewood_available_ras = []
-            for ra in ras:
-                if curr not in ra.unv_irregular:
-                    if ra.building == 'homewood':
-                        homewood_available_ras.append(ra)
-                    elif ra.building == 'bradford':
-                        bradford_available_ras.append(ra)
-
-            # Selected RA for each building
-            selected_bradford_ras = []
-            min_val = 100 # RAs should not have this many duties
-            for ra in bradford_available_ras:
-                if tracker[ra.name][ind] < min_val:
-                    # Reset selected
-                    selected_bradford_ras = []
-                    min_val = tracker[ra.name][ind]
-                    selected_bradford_ras.append(ra)
-                elif tracker[ra.name][ind] == min_val:
-                    selected_bradford_ras.append(ra)
-
-            selected_homewood_ras = []
-            min_val = 100 # RAs should not have this many duties
-            for ra in homewood_available_ras:
-                if tracker[ra.name][ind] < min_val:
-                    # Reset selected
-                    selected_homewood_ras = []
-                    min_val = tracker[ra.name][ind]
-                    selected_homewood_ras.append(ra)
-                elif tracker[ra.name][ind] == min_val:
-                    selected_homewood_ras.append(ra)
-
-            # Assign people
-            homewood_selected = None
-            bradford_selected = None
-
-            if len(selected_homewood_ras) == 0:
-                print ('%s - Couldn\'t resolve for Homewood' % str(curr))
-                print('We are fuckeddddddd')
-                # Select at random for now
-                chosen_by_god = rand.randint(0, num_ras - 1)
-                homewood_selected = ras[chosen_by_god]
-
-            elif len(selected_homewood_ras) == 1:
-                # Just get this person out
-                homewood_selected = selected_homewood_ras[0]
-
-            else:
-                # Many RAs with the same number of empty dates. Chosen by god
-                chosen_by_god = rand.randint(0, len(selected_homewood_ras) - 1)
-                homewood_selected = selected_homewood_ras[chosen_by_god]
+        if len(selected_bradford_ras) == 0:
+            # Best solution is to ask a Homewood RA to cover for now
+            print ('%s - Couldn\'t resolve for Bradford' % str(curr))
+            if len(homewood_available_ras) == 1:
+                print('%s - Not enough RAs to cover 2 buildings' %str(curr))
+                bradford_selected = homewood_selected
             
-            if len(selected_bradford_ras) == 0:
-                # Best solution is to ask a Homewood RA to cover for now
-                print ('%s - Couldn\'t resolve for Bradford' % str(curr))
-                if len(homewood_available_ras) == 1:
-                    print('%s - Not enough RAs to cover 2 buildings' %str(curr))
-                    bradford_selected = homewood_selected
-                
-                else:
-                    chosen_by_god = rand.randint(0, len(homewood_available_ras) - 1)
-                    bradford_selected = homewood_available_ras[chosen_by_god]
-
-            elif len(selected_bradford_ras) == 1:
-                bradford_selected = selected_bradford_ras[0]
-
             else:
-                chosen_by_god = rand.randint(0, len(selected_bradford_ras) - 1)
-                bradford_selected = selected_bradford_ras[chosen_by_god]
-                
-            schedule[curr] = homewood_selected.name + ', ' + bradford_selected.name
-            tracker[homewood_selected.name][ind] += 1
-            tracker[bradford_selected.name][ind] += 1
-               
+                chosen_by_god = rand.randint(0, len(homewood_available_ras) - 1)
+                bradford_selected = homewood_available_ras[chosen_by_god]
+
+        elif len(selected_bradford_ras) == 1:
+            bradford_selected = selected_bradford_ras[0]
+
+        else:
+            chosen_by_god = rand.randint(0, len(selected_bradford_ras) - 1)
+            bradford_selected = selected_bradford_ras[chosen_by_god]
+            
+        schedule[curr] = homewood_selected.name + ', ' + bradford_selected.name
+        tracker[homewood_selected.name][1] += 1
+        tracker[bradford_selected.name][1] += 1
+    
+    for curr in weekdays:
+        # Generate a list of all available RAs
+        available_ras = []
+        for ra in ras:
+            if curr not in ra.unv_irregular:
+                available_ras.append(ra)
+        
+        # Get the one with the least amount so far 
+        selected_ras = []
+        min_val = 100 # RAs should not have this many duties
+        for ra in available_ras:
+            if (tracker[ra.name][0] + tracker[ra.name][1]) < min_val:
+                # Reset selected
+                selected_ras = []
+                min_val = tracker[ra.name][0] + tracker[ra.name][1]
+                selected_ras.append(ra)
+            elif (tracker[ra.name][0] + tracker[ra.name][1]) == min_val:
+                selected_ras.append(ra)
+
+        # Assign the date
+        selected = None
+        if len(selected_ras) == 0:
+            print ('%s - Couldn\'t resolve' % str(curr))
+            # Select at random for now
+            chosen_by_god = rand.randint(0, num_ras - 1)
+            selected = ras[chosen_by_god]
+
+        elif len(selected_ras) == 1:
+            # Just get this person out
+            selected = selected_ras[0]
+
+        else:
+            # Many RAs with the same number of empty dates. Chosen by god
+            chosen_by_god = rand.randint(0, len(selected_ras) - 1)
+            selected = selected_ras[chosen_by_god]
+        schedule[curr] = selected.name
+        tracker[selected.name][0] += 1 
+
     for curr in duty_range:
         outfile.write('%s : %s : %s\n' %
                       (inverse[curr.weekday()], str(curr), schedule[curr]))
     outfile.close()
     print ('Summary')
+    print('Number of RAs are: ', num_ras)
+    print('Total numbers of weekdays: ', len(weekdays))
+    print('Total numbers of weekends: ', len(weekends))
     for ra in ras:
         curr = tracker[ra.name]
         print ('%s : weekdays %d, weekends %d' % (ra.name, curr[0], curr[1]))
@@ -362,9 +357,7 @@ def run_create(infile, outfile, start_date, end_date, break_start, break_end):
     ras = parse_file(infile)
     create_schedule(ras, outfile, start=start_date, end=end_date,
                     break_start=break_start, break_end=break_end)
-    print ('Finished schedule has been output to %s.\n \
-           Please look over schedule before commiting to Google Calendar.\n \
-           Run \'$ python scheduler.py -i %s -c\' to commit to Google Calendar.' % (outfile.name, outfile.name))
+    print ('Finished schedule has been output to %s.' % (outfile.name))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='ResLife duty scheduler',

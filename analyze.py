@@ -1,12 +1,7 @@
 from datetime import date
 import sys
 import scheduler
-try:
-    import argparse
-except ImportError:
-    import pip
-    pip.main(['install', 'argparse'])
-    import argparse
+import argparse
 
 def get_summary(infile):
     sched = scheduler.parse_sched_file(infile)
