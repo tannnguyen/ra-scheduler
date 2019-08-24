@@ -4,6 +4,7 @@ import random as rand
 import math
 import os
 import sys
+import argparse
 
 days = {
     'monday': 0,
@@ -189,7 +190,9 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None):
         break_start, break_end) if break_start != None and break_end != None else set()
     duty_range, num_weekdays, num_weekends = create_date_range(
         start, end, break_)
-    print (num_ras)
+    print(num_ras)
+    print(num_weekdays)
+    print(num_weekends)
 
     tracker, schedule = dict(), dict()
     for ra in ras:
@@ -226,7 +229,7 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None):
             if len(selected_ras) == 0:
                 print ('%s - Couldn\'t resolve' % str(curr))
                 # Select at random for now
-                chosen_by_god = rand.randint(0, num_ras)
+                chosen_by_god = rand.randint(0, num_ras - 1)
                 selected = ras[chosen_by_god]
 
             elif len(selected_ras) == 1:
@@ -235,9 +238,10 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None):
 
             else:
                 # Many RAs with the same number of empty dates. Chosen by god
-                chosen_by_god = rand.randint(0, len(selected_ras))
+                chosen_by_god = rand.randint(0, len(selected_ras) - 1)
                 selected = selected_ras[chosen_by_god]
             schedule[curr] = selected.name
+            tracker[selected.name][ind] += 1 
         
         else: # Generate for the weekends
             # For weekends, 1 Bradford and 1 Homewood
@@ -281,7 +285,7 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None):
                 print ('%s - Couldn\'t resolve for Homewood' % str(curr))
                 print('We are fuckeddddddd')
                 # Select at random for now
-                chosen_by_god = rand.randint(0, num_ras)
+                chosen_by_god = rand.randint(0, num_ras - 1)
                 homewood_selected = ras[chosen_by_god]
 
             elif len(selected_homewood_ras) == 1:
@@ -290,7 +294,7 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None):
 
             else:
                 # Many RAs with the same number of empty dates. Chosen by god
-                chosen_by_god = rand.randint(0, len(selected_homewood_ras))
+                chosen_by_god = rand.randint(0, len(selected_homewood_ras) - 1)
                 homewood_selected = selected_homewood_ras[chosen_by_god]
             
             if len(selected_bradford_ras) == 0:
@@ -301,27 +305,20 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None):
                     bradford_selected = homewood_selected
                 
                 else:
-                    chosen_by_god = rand.randint(0, len(homewood_available_ras))
+                    chosen_by_god = rand.randint(0, len(homewood_available_ras) - 1)
                     bradford_selected = homewood_available_ras[chosen_by_god]
 
             elif len(selected_bradford_ras) == 1:
                 bradford_selected = selected_bradford_ras[0]
 
             else:
-                chosen_by_god = rand.randint(0, len(selected_bradford_ras))
+                chosen_by_god = rand.randint(0, len(selected_bradford_ras) - 1)
                 bradford_selected = selected_bradford_ras[chosen_by_god]
                 
-            schedule[curr] = homewood_selected.name + bradford_selected.name
-                
-
-
-
-        '''
-        old code 
-        '''
-
-        nm = lst.pop(roll).name
-        tracker[nm][ind] -= 1
+            schedule[curr] = homewood_selected.name + ', ' + bradford_selected.name
+            tracker[homewood_selected.name][ind] += 1
+            tracker[bradford_selected.name][ind] += 1
+               
     for curr in duty_range:
         outfile.write('%s : %s : %s\n' %
                       (inverse[curr.weekday()], str(curr), schedule[curr]))
@@ -371,7 +368,6 @@ def run_create(infile, outfile, start_date, end_date, break_start, break_end):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='ResLife duty scheduler',
-                                     parents=[tools.argparser],
                                      prog='scheduler.py')
     parser.add_argument('-i', '--infile', type=argparse.FileType('r'),
                         required=True,
