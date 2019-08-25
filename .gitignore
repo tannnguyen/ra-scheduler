@@ -2,4 +2,4 @@
 *.pdf
 *.json
 *.pyc
-*.vscode
+.vscode
