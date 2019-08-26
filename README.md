@@ -3,6 +3,7 @@
 While there are codes (check sources below) that help with generating duty schedule, we want to have a fairer method that doesn't require running codes over and over again. Also, with the emergence of a new ways to do duty, we want to regenerate pair duty for the weekend as well. 
 
 ## System Requirement
+
 * Python 3.x
 
 ## Execution
@@ -26,9 +27,10 @@ If you need to generate two duties for two buildings in the weekend, add flag `-
 
 * Code cleaning
 * Web version (similar to Haroon's version)
-* Add backup to outputs for easy switch
 * Day of the week (low priority since not encouraging this)
 * Google Calendar API/Microsoft Calendar API
+* Automatically detect multiple buildings
+* Export to Calendar format
 
 ## Sources
 

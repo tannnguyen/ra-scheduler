@@ -72,6 +72,13 @@ class InvalidFileFormatException(Exception):
     def __str__(self):
         return '%s - file format is invalid.' % (self.filename)
 
+class InvalidBuildingException(Exception):
+    def __init__(self, message):
+        self.message = message
+
+    def __str__(self):
+        return '%s - Building is not valid' % (self.message)
+
 def get_date_obj(date_string):
     '''
      Returns a date object based on an input string.
@@ -160,21 +167,26 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, 
     duty_range, weekdays, weekends = create_date_range(start, end, break_)
 
     tracker, schedule = dict(), dict()
+    backup = dict()
     for ra in ras:
         tracker[ra.name] = [0, 0] # Track how many days of weekdays and weekends
 
     # Split to do weekends first and then weekday
-    if two: # Just the problem of Bradford and Homewood together
+    if two: # Just the problem of Bradford and Homewood together]
         for curr in weekends:
             # For weekends, 1 Bradford and 1 Homewood
             bradford_available_ras = []
             homewood_available_ras = []
+            backup[curr] = []
             for ra in ras:
                 if curr not in ra.unavail:
+                    backup[curr].append(ra.name)
                     if ra.building == 'homewood':
                         homewood_available_ras.append(ra)
                     elif ra.building == 'bradford':
                         bradford_available_ras.append(ra)
+                    else:
+                        raise InvalidBuildingException(ra.building)
 
             # Selected RA for each building
             selected_bradford_ras = []
@@ -237,15 +249,20 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, 
                 bradford_selected = selected_bradford_ras[chosen_by_god]
                 
             schedule[curr] = homewood_selected.name + ', ' + bradford_selected.name
+            backup[curr].remove(homewood_selected.name)
+            backup[curr].remove(bradford_selected.name)
+            rand.shuffle(backup[curr])
             tracker[homewood_selected.name][1] += 1
             tracker[bradford_selected.name][1] += 1
+
     else: # Just for one building
-        print('just one building')
         for curr in weekends:
+            backup[curr] = []
             available_ras = []
             for ra in ras:
                 if curr not in ra.unavail:
                     available_ras.append(ra)
+                    backup[curr].append(ra.name)
 
             # Selected RA for each building
             selected_ras = []
@@ -275,14 +292,19 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, 
                 selected = selected_ras[chosen_by_god]
                 
             schedule[curr] = selected.name
+            backup[curr] = available_ras
+            backup[curr].remove(selected.name)
+            rand.shuffle(backup[curr])
             tracker[selected.name][1] += 1
     
     for curr in weekdays:
         # Generate a list of all available RAs
         available_ras = []
+        backup[curr] = []
         for ra in ras:
             if curr not in ra.unavail:
                 available_ras.append(ra)
+                backup[curr].append(ra.name)
         
         # Get the one with the least amount so far 
         selected_ras = []
@@ -313,11 +335,13 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, 
             chosen_by_god = rand.randint(0, len(selected_ras) - 1)
             selected = selected_ras[chosen_by_god]
         schedule[curr] = selected.name
-        tracker[selected.name][0] += 1 
+        tracker[selected.name][0] += 1
+        backup[curr].remove(selected.name)
+        rand.shuffle(backup[curr])
 
     for curr in duty_range:
-        outfile.write('%s : %s : %s\n' %
-                      (inverse[curr.weekday()], str(curr), schedule[curr]))
+        outfile.write('%s %s : %s (backup: %s)\n' %
+                      (inverse[curr.weekday()], str(curr), schedule[curr], ', '.join(backup[curr])))
     outfile.close()
     print ('Summary')
     print('Number of RAs are:', num_ras)
