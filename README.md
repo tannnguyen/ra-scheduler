@@ -34,4 +34,4 @@ If you need to generate two duties for two buildings in the weekend, add flag `-
 
 ## Sources
 
-Credit to original codes from [Haroon](https://github.com/hsghori/scheduler). Since we changed the main algorithm significantly, we cannot make a pull request or a fork from it. 
+Credit to original codes from [Haroon](https://github.com/hsghori/scheduler). 

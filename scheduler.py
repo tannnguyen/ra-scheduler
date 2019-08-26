@@ -79,7 +79,7 @@ class InvalidBuildingException(Exception):
     def __str__(self):
         return '%s - Building is not valid' % (self.message)
 
-def get_date_obj(date_string):
+def string_to_date(date_string):
     '''
      Returns a date object based on an input string.
      Params:
@@ -102,8 +102,8 @@ def create_date_range(begin_str, end_str, exclude=set()):
          weekdays -> the number of weekdays in the range
          weekends -> the number of weekends in the range
     '''
-    curr = get_date_obj(begin_str)
-    end = get_date_obj(end_str)
+    curr = string_to_date(begin_str)
+    end = string_to_date(end_str)
     if end < curr:
         raise InvalidDateRangeException(curr, end)
     ret, weekdays, weekends = [], [], []
@@ -134,8 +134,8 @@ def parse_file(infile):
                 continue
             name = parts[0].strip()
             building = parts[1].lower().strip()
-            irregular = set([get_date_obj(i.strip()) for i in parts[2].split(',')]) if parts[2] != '' else set()
-            ras.append(RA(name=name, building=building, unavail=irregular))
+            unavail = set([string_to_date(i.strip()) for i in parts[2].split(',')]) if parts[2] != '' else set()
+            ras.append(RA(name=name, building=building, unavail=unavail))
         except Exception as e:
             print(e)
             raise InvalidFileFormatException(infile)
