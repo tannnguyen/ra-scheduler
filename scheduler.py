@@ -142,7 +142,7 @@ def parse_file(infile):
     return ras
 
 
-def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, two=False):
+def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, two=False, available=True):
     '''
      Creates a duty schedule based on the data in ras a outputs to an outfile. 
      Params:
@@ -340,7 +340,10 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, 
         rand.shuffle(backup[curr])
 
     for curr in duty_range:
-        outfile.write('%s %s : %s (backup: %s)\n' %
+        outfile.write('%s %s: %s\n' % (inverse[curr.weekday()], str(curr), schedule[curr]))
+    if available:
+        for curr in duty_range:
+            outfile.write('%s %s : %s (backup: %s)\n' %
                       (inverse[curr.weekday()], str(curr), schedule[curr], ', '.join(backup[curr])))
     outfile.close()
     print ('Summary')
@@ -351,7 +354,7 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, 
         curr = tracker[ra.name]
         print ('%s : weekdays %d, weekends %d' % (ra.name, curr[0], curr[1]))
 
-def run_create(infile, outfile, start_date, end_date, break_start, break_end, two):
+def run_create(infile, outfile, start_date, end_date, break_start, break_end, two, available):
     '''
      Creates a schedule based on data in infile and outptus to outfile. 
      Params:
@@ -387,8 +390,9 @@ if __name__ == '__main__':
                         help='Enter the ending date of a major break \
                         (Thanksgiving / Easter) in MM/DD/YYYY format.')
     parser.add_argument('-two', action='store_true', help='Set True to use for two buildings')
+    parser.add_argument('-available', action='store_true', help='Set True to provide extra availability')
 
     flags = parser.parse_args()
     run_create(flags.infile, flags.outfile, flags.start_date,
                    flags.end_date, flags.break_start_date,
-                   flags.break_end_date, flags.two)
+                   flags.break_end_date, flags.two, flags.available)
