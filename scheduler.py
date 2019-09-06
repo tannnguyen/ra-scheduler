@@ -292,7 +292,6 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, 
                 selected = selected_ras[chosen_by_god]
                 
             schedule[curr] = selected.name
-            backup[curr] = available_ras
             backup[curr].remove(selected.name)
             rand.shuffle(backup[curr])
             tracker[selected.name][1] += 1
