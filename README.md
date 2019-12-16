@@ -4,6 +4,14 @@ While there are codes (check sources below) that help with generating duty sched
 
 ### Note: Please look at the sample files to see how to create a txt file
 
+## File txt
+
+The format for each RA in txt file is:
+```
+Name | Building | Number of weekdays already finished | Number of weekends already finished | Dates unavailable to be on duty
+```
+
+
 ## System Requirement
 
 * Python 3.x
