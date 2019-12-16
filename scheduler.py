@@ -133,6 +133,7 @@ def parse_file(infile):
             if len(parts) <= 1:
                 continue
             name = parts[0].strip()
+            print(name)
             building = parts[1].lower().strip()
             unavail = set([string_to_date(i.strip()) for i in parts[2].split(',')]) if parts[2] != '' else set()
             ras.append(RA(name=name, building=building, unavail=unavail))
@@ -388,8 +389,8 @@ if __name__ == '__main__':
     parser.add_argument('-be', '--break-end-date',
                         help='Enter the ending date of a major break \
                         (Thanksgiving / Easter) in MM/DD/YYYY format.')
-    parser.add_argument('-two', action='store_true', help='Set True to use for two buildings')
-    parser.add_argument('-available', action='store_true', help='Set True to provide extra availability')
+    parser.add_argument('--two', action='store_true', help='Set True to use for two buildings')
+    parser.add_argument('--available', action='store_true', help='Set True to provide extra availability')
 
     flags = parser.parse_args()
     run_create(flags.infile, flags.outfile, flags.start_date,

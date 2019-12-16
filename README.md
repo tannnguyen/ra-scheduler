@@ -18,7 +18,13 @@ python scheduler.py -i input.txt -o output.txt -s mm/dd/yyyy -e mm/dd/yyyy -bs m
 Alternatively,
 
 ``` Python 3
-python scheduler.py --infile someFile.txt --outfile someOutput.txt --start-date mm/dd/yyyy --end-date  mm/dd/yyyy --break-start-date  mm/dd/yyyy --break-end-date  mm/dd/yyyy
+python scheduler.py --infile someFile.txt --outfile someOutput.txt --start-date mm/dd/yyyy --end-date  mm/dd/yyyy --break-start-date  mm/dd/yyyy --break-end-date  mm/dd/yyyy --
+```
+
+Example run:
+``` Python 3
+python scheduler.py -i input.txt -o out.txt -s 09/13/2019 -e 12/20/2019 -bs 11/27/2019 -be 11/29/2019 --two --available
+
 ```
 
 If you need to generate two duties for two buildings in the weekend, add flag `-two` to script above. 

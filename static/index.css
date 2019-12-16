@@ -1,0 +1,54 @@
+body {
+    background: #f4f4f4;
+    color: #555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0px;
+    position: relative;
+  }
+
+  #header {
+    text-align: center;
+    color:black;
+  }
+  
+
+  h2 {
+    text-align: center;
+    color: black;
+  }
+  
+  p {
+    text-align: justify;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: blue;
+  }
+  
+  #footer {
+    text-align: center;
+    padding: 1em 0em;
+    color: grey;
+  }
+  
+  @media (max-width: 900px) {
+    .logo {
+      padding: 0em;
+      text-align: center;
+    }
+  
+    p {
+      text-align: left;
+    }
+  
+    .block {
+      display: block;
+    }
+  }
+  
