@@ -52,6 +52,7 @@ class InvalidDateRangeException(Exception):
     '''
 
     def __init__(self, start_date, end_date):
+        super().__init__()
         self.start_date = start_date
         self.end_date = end_date
 
@@ -67,6 +68,7 @@ class InvalidFileFormatException(Exception):
     '''
 
     def __init__(self, filename):
+        super().__init__()
         self.filename = filename
 
     def __str__(self):
@@ -74,10 +76,19 @@ class InvalidFileFormatException(Exception):
 
 class InvalidBuildingException(Exception):
     def __init__(self, message):
+        super().__init__()
         self.message = message
 
     def __str__(self):
         return '%s - Building is not valid' % (self.message)
+
+class SameNameException(Exception):
+    def __init__(self, message):
+        super().__init__()
+        self.message = message
+
+    def __str__(self):
+        return self.message
 
 def string_to_date(date_string):
     '''
@@ -127,6 +138,7 @@ def parse_file(infile):
         ras -> a list of RA objects based on the data in infile
     '''
     ras = []
+    tracker = dict()
     for line in infile:
         try:
             parts = line.split('| ')
@@ -134,16 +146,23 @@ def parse_file(infile):
                 continue
             name = parts[0].strip()
             print(name)
+            if name in tracker:
+                raise SameNameException('RAs having the same name... Please differentiate them...')
             building = parts[1].lower().strip()
-            unavail = set([string_to_date(i.strip()) for i in parts[2].split(',')]) if parts[2] != '' else set()
-            ras.append(RA(name=name, building=building, unavail=unavail))
+            num_weekdays = int(parts[2].strip())
+            num_weekends = int(parts[3].strip())
+            unavail = set([string_to_date(i.strip()) for i in parts[4].split(',')]) if parts[4] != '' else set()
+            ra = RA(name=name, building=building, unavail=unavail)
+            tracker[name] = [num_weekdays, num_weekends]
+            ras.append(ra)
+
         except Exception as e:
             print(e)
             raise InvalidFileFormatException(infile)
-    return ras
+    return ras, tracker
 
 
-def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, two=False, available=True):
+def create_schedule(ras, outfile, tracker, start, end, break_start=None, break_end=None, two=False, available=True):
     '''
      Creates a duty schedule based on the data in ras a outputs to an outfile. 
      Params:
@@ -167,13 +186,11 @@ def create_schedule(ras, outfile, start, end, break_start=None, break_end=None, 
     break_, _, _ = create_date_range(break_start, break_end) if break_start != None and break_end != None else set()
     duty_range, weekdays, weekends = create_date_range(start, end, break_)
 
-    tracker, schedule = dict(), dict()
+    schedule = dict()
     backup = dict()
-    for ra in ras:
-        tracker[ra.name] = [0, 0] # Track how many days of weekdays and weekends
-
+   
     # Split to do weekends first and then weekday
-    if two: # Just the problem of Bradford and Homewood together]
+    if two: # Just the problem of Bradford and Homewood together
         for curr in weekends:
             # For weekends, 1 Bradford and 1 Homewood
             bradford_available_ras = []
@@ -363,8 +380,8 @@ def run_create(infile, outfile, start_date, end_date, break_start, break_end, tw
         start_date -> the start date for the schedule 
         end_date -> the end date for the schedule
     '''
-    ras = parse_file(infile)
-    create_schedule(ras, outfile, start=start_date, end=end_date,
+    ras, tracker = parse_file(infile)
+    create_schedule(ras, outfile, tracker=tracker, start=start_date, end=end_date,
                     break_start=break_start, break_end=break_end, two=two)
     print ('Finished schedule has been output to %s.' % (outfile.name))
 

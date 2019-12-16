@@ -1,0 +1,192 @@
+friday 2019-09-13: MA, MJ
+saturday 2019-09-14: FF, SH
+sunday 2019-09-15: MA
+monday 2019-09-16: FF
+tuesday 2019-09-17: ZA
+wednesday 2019-09-18: KN
+thursday 2019-09-19: MA
+friday 2019-09-20: MA, TN
+saturday 2019-09-21: KN, MJ
+sunday 2019-09-22: FF
+monday 2019-09-23: ZA
+tuesday 2019-09-24: EM
+wednesday 2019-09-25: KN
+thursday 2019-09-26: ZA
+friday 2019-09-27: EM, EE
+saturday 2019-09-28: MA, TN
+sunday 2019-09-29: FF
+monday 2019-09-30: LU
+tuesday 2019-10-01: LU
+wednesday 2019-10-02: SH
+thursday 2019-10-03: EE
+friday 2019-10-04: ZA, MJ
+saturday 2019-10-05: LU, TN
+sunday 2019-10-06: EM
+monday 2019-10-07: MA
+tuesday 2019-10-08: EM
+wednesday 2019-10-09: LU
+thursday 2019-10-10: ZA
+friday 2019-10-11: FF, EE
+saturday 2019-10-12: EM, EE
+sunday 2019-10-13: KN
+monday 2019-10-14: EE
+tuesday 2019-10-15: SH
+wednesday 2019-10-16: FF
+thursday 2019-10-17: MA
+friday 2019-10-18: LU, SH
+saturday 2019-10-19: KN, SH
+sunday 2019-10-20: FF
+monday 2019-10-21: EM
+tuesday 2019-10-22: SH
+wednesday 2019-10-23: EE
+thursday 2019-10-24: TN
+friday 2019-10-25: EM, MJ
+saturday 2019-10-26: FF, TN
+sunday 2019-10-27: MJ
+monday 2019-10-28: MA
+tuesday 2019-10-29: KN
+wednesday 2019-10-30: LU
+thursday 2019-10-31: ZA
+friday 2019-11-01: MA, SH
+saturday 2019-11-02: KN, TN
+sunday 2019-11-03: EE
+monday 2019-11-04: TN
+tuesday 2019-11-05: EM
+wednesday 2019-11-06: LU
+thursday 2019-11-07: ZA
+friday 2019-11-08: ZA, MJ
+saturday 2019-11-09: LU, EE
+sunday 2019-11-10: MA
+monday 2019-11-11: SH
+tuesday 2019-11-12: KN
+wednesday 2019-11-13: KN
+thursday 2019-11-14: FF
+friday 2019-11-15: MA, MJ
+saturday 2019-11-16: LU, TN
+sunday 2019-11-17: MJ
+monday 2019-11-18: MA
+tuesday 2019-11-19: EM
+wednesday 2019-11-20: TN
+thursday 2019-11-21: FF
+friday 2019-11-22: ZA, EE
+saturday 2019-11-23: EM, MJ
+sunday 2019-11-24: LU
+monday 2019-11-25: EE
+tuesday 2019-11-26: EE
+saturday 2019-11-30: FF, TN
+sunday 2019-12-01: MJ
+monday 2019-12-02: ZA
+tuesday 2019-12-03: SH
+wednesday 2019-12-04: SH
+thursday 2019-12-05: LU
+friday 2019-12-06: KN, SH
+saturday 2019-12-07: ZA, SH
+sunday 2019-12-08: MA
+monday 2019-12-09: KN
+tuesday 2019-12-10: FF
+wednesday 2019-12-11: TN
+thursday 2019-12-12: ZA
+friday 2019-12-13: LU, EE
+saturday 2019-12-14: KN, TN
+sunday 2019-12-15: MJ
+monday 2019-12-16: MA
+tuesday 2019-12-17: EM
+wednesday 2019-12-18: FF
+thursday 2019-12-19: KN
+friday 2019-12-20: EM, MJ
+friday 2019-09-13 : MA, MJ (backup: SH, LU, KN, FF, ZA, EE, EM)
+saturday 2019-09-14 : FF, SH (backup: MA, ZA, MJ, EE, EM)
+sunday 2019-09-15 : MA (backup: LU, FF, TN, EE, EM, SH, MJ)
+monday 2019-09-16 : FF (backup: EE, LU, ZA, MA, SH, KN, TN)
+tuesday 2019-09-17 : ZA (backup: TN, EM, KN, SH, EE, MA, LU)
+wednesday 2019-09-18 : KN (backup: EE, FF, LU, EM, TN, ZA, SH)
+thursday 2019-09-19 : MA (backup: FF, EE, SH, LU)
+friday 2019-09-20 : MA, TN (backup: KN, FF, MJ)
+saturday 2019-09-21 : KN, MJ (backup: FF, TN, EE, MA)
+sunday 2019-09-22 : FF (backup: SH, EE, TN, MJ, EM, MA)
+monday 2019-09-23 : ZA (backup: SH, EE, KN, FF, TN, MA)
+tuesday 2019-09-24 : EM (backup: KN, ZA, TN, MJ, EE, SH)
+wednesday 2019-09-25 : KN (backup: ZA, SH, EE, EM, MA)
+thursday 2019-09-26 : ZA (backup: MA, MJ, FF, EE, SH)
+friday 2019-09-27 : EM, EE (backup: MA, FF, MJ, KN)
+saturday 2019-09-28 : MA, TN (backup: EE, FF, MJ, ZA, EM, KN)
+sunday 2019-09-29 : FF (backup: TN, KN, MA, EE, SH, MJ, EM)
+monday 2019-09-30 : LU (backup: SH, KN, EM, TN, ZA, MA, FF, EE)
+tuesday 2019-10-01 : LU (backup: TN, EE, KN, ZA, SH)
+wednesday 2019-10-02 : SH (backup: TN, LU, MA, EM, KN, EE, ZA)
+thursday 2019-10-03 : EE (backup: ZA, LU, TN, SH, FF)
+friday 2019-10-04 : ZA, MJ (backup: FF, EM, KN, MA, SH)
+saturday 2019-10-05 : LU, TN (backup: ZA, EE, MJ, FF, MA, EM, KN)
+sunday 2019-10-06 : EM (backup: MA, EE, LU, MJ, TN, FF, KN)
+monday 2019-10-07 : MA (backup: EE, SH, ZA, LU, EM, KN, FF)
+tuesday 2019-10-08 : EM (backup: KN, ZA, SH, MJ, MA, EE, LU)
+wednesday 2019-10-09 : LU (backup: TN, EE, SH, ZA, MA, EM, FF, KN)
+thursday 2019-10-10 : ZA (backup: SH, FF, TN, LU, EE, KN, MA)
+friday 2019-10-11 : FF, EE (backup: SH, MA, TN, MJ, EM, ZA, KN)
+saturday 2019-10-12 : EM, EE (backup: ZA, TN, MA, FF, MJ)
+sunday 2019-10-13 : KN (backup: SH, FF, LU, EE, TN)
+monday 2019-10-14 : EE (backup: KN, ZA, EM, LU, MA, FF, TN)
+tuesday 2019-10-15 : SH (backup: LU, EE, MJ, KN, ZA, EM, MA)
+wednesday 2019-10-16 : FF (backup: KN, ZA, EE, MA, EM, SH)
+thursday 2019-10-17 : MA (backup: EE, FF, LU, ZA, SH)
+friday 2019-10-18 : LU, SH (backup: EM, FF)
+saturday 2019-10-19 : KN, SH (backup: EM, FF, EE)
+sunday 2019-10-20 : FF (backup: LU, EM, EE)
+monday 2019-10-21 : EM (backup: SH, TN, LU, FF, ZA, EE, MA)
+tuesday 2019-10-22 : SH (backup: TN, MA, EM, LU, ZA, EE, MJ, KN)
+wednesday 2019-10-23 : EE (backup: SH, EM, LU, ZA, MA, TN, KN)
+thursday 2019-10-24 : TN (backup: ZA, FF, SH, EE)
+friday 2019-10-25 : EM, MJ (backup: LU, FF, SH, EE, TN, MA)
+saturday 2019-10-26 : FF, TN (backup: ZA, EM, MJ, EE, MA, LU, SH)
+sunday 2019-10-27 : MJ (backup: FF, TN, SH, EE, EM)
+monday 2019-10-28 : MA (backup: EM, FF, KN, ZA, SH, TN, EE)
+tuesday 2019-10-29 : KN (backup: MA, EE, LU, SH, TN, ZA)
+wednesday 2019-10-30 : LU (backup: EM, MA, KN, SH, ZA, TN, EE)
+thursday 2019-10-31 : ZA (backup: MA, TN, FF, LU, EE)
+friday 2019-11-01 : MA, SH (backup: ZA, KN, MJ, EE, EM)
+saturday 2019-11-02 : KN, TN (backup: MA, EE, MJ, EM, ZA, SH)
+sunday 2019-11-03 : EE (backup: MJ, SH, EM, LU, MA, FF)
+monday 2019-11-04 : TN (backup: EE, KN, EM, ZA, MA, FF, LU, SH)
+tuesday 2019-11-05 : EM (backup: SH, EE, MJ, KN, MA, ZA, LU, TN)
+wednesday 2019-11-06 : LU (backup: ZA, EM, FF, MA, EE, SH)
+thursday 2019-11-07 : ZA (backup: MA, LU, KN, FF, EE, TN)
+friday 2019-11-08 : ZA, MJ (backup: TN, EM, EE, LU, KN, FF, MA, SH)
+saturday 2019-11-09 : LU, EE (backup: EM, TN, SH, MA, FF, ZA, MJ, KN)
+sunday 2019-11-10 : MA (backup: EM, SH, FF, EE, LU, TN)
+monday 2019-11-11 : SH (backup: MA, ZA, EE, TN, KN, EM, LU, FF)
+tuesday 2019-11-12 : KN (backup: MJ, ZA, EE, SH, LU, TN, EM, MA)
+wednesday 2019-11-13 : KN (backup: TN, EE, EM, SH, ZA, LU, MA)
+thursday 2019-11-14 : FF (backup: ZA, MA, EE, KN, SH, LU)
+friday 2019-11-15 : MA, MJ (backup: ZA, SH, TN, LU, FF, KN)
+saturday 2019-11-16 : LU, TN (backup: KN, MJ, EE, MA, ZA, SH, FF)
+sunday 2019-11-17 : MJ (backup: LU, FF, MA, EE, TN, SH)
+monday 2019-11-18 : MA (backup: FF, TN, LU, EM, SH, ZA, KN, EE)
+tuesday 2019-11-19 : EM (backup: MA, SH, ZA, LU, KN, EE, TN)
+wednesday 2019-11-20 : TN (backup: SH, EE, EM, LU, ZA, MA, FF, KN)
+thursday 2019-11-21 : FF (backup: SH, EM, LU, EE, ZA, MA, KN)
+friday 2019-11-22 : ZA, EE (backup: EM, MJ, SH, FF, LU)
+saturday 2019-11-23 : EM, MJ (backup: ZA, LU, FF, TN)
+sunday 2019-11-24 : LU (backup: FF, MJ, EM, TN, ZA)
+monday 2019-11-25 : EE (backup: EM, FF, TN, LU)
+tuesday 2019-11-26 : EE (backup: EM, TN, FF, LU)
+saturday 2019-11-30 : FF, TN (backup: EM, LU)
+sunday 2019-12-01 : MJ (backup: FF, SH, MA, EE, LU, EM, TN)
+monday 2019-12-02 : ZA (backup: EM, MA, EE, FF, LU, KN)
+tuesday 2019-12-03 : SH (backup: TN, LU, KN, ZA, EE)
+wednesday 2019-12-04 : SH (backup: EM, MA, KN, EE)
+thursday 2019-12-05 : LU (backup: SH, ZA, MA, KN, FF, EE)
+friday 2019-12-06 : KN, SH (backup: MJ, EE, EM, ZA, LU, TN, FF, MA)
+saturday 2019-12-07 : ZA, SH (backup: FF, MJ, TN, MA, KN, LU, EM, EE)
+sunday 2019-12-08 : MA (backup: TN, EE, EM, MJ, LU, FF, SH)
+monday 2019-12-09 : KN (backup: MA, EE, ZA, FF, MJ, EM, TN, LU)
+tuesday 2019-12-10 : FF (backup: MJ, ZA, TN, EM, KN, LU, EE)
+wednesday 2019-12-11 : TN (backup: MA, FF, MJ, EM, EE)
+thursday 2019-12-12 : ZA (backup: EE, KN, MA, FF)
+friday 2019-12-13 : LU, EE (backup: MJ, EM, TN, KN, MA, FF, ZA, SH)
+saturday 2019-12-14 : KN, TN (backup: SH, MJ, MA, ZA, EM, LU, EE)
+sunday 2019-12-15 : MJ (backup: LU, EM, EE, SH, KN)
+monday 2019-12-16 : MA (backup: EE, MJ, KN)
+tuesday 2019-12-17 : EM (backup: TN, ZA, SH, EE, MJ, KN)
+wednesday 2019-12-18 : FF (backup: ZA, TN, MA, EM, EE, SH, LU)
+thursday 2019-12-19 : KN (backup: MJ, MA, LU, EM, ZA, TN, SH, EE, FF)
+friday 2019-12-20 : EM, MJ (backup: KN, TN, ZA, LU, MA, SH, EE)

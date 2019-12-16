@@ -2,6 +2,8 @@
 
 While there are codes (check sources below) that help with generating duty schedule, we want to have a fairer method that doesn't require running codes over and over again. Also, with the emergence of a new ways to do duty, we want to regenerate pair duty for the weekend as well. 
 
+### Note: Please look at the sample files to see how to create a txt file
+
 ## System Requirement
 
 * Python 3.x
@@ -23,7 +25,9 @@ python scheduler.py --infile someFile.txt --outfile someOutput.txt --start-date 
 
 Example run:
 ``` Python 3
-python scheduler.py -i input.txt -o out.txt -s 09/13/2019 -e 12/20/2019 -bs 11/27/2019 -be 11/29/2019 --two --available
+python scheduler.py -i sample1.txt -o out1.txt -s 09/13/2019 -e 12/20/2019 -bs 11/27/2019 -be 11/29/2019 --available
+
+python scheduler.py -i sample2.txt -o out2.txt -s 09/13/2019 -e 12/20/2019 -bs 11/27/2019 -be 11/29/2019 --two --available
 
 ```
 

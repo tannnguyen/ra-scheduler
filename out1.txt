@@ -1,0 +1,192 @@
+friday 2019-09-13: MY
+saturday 2019-09-14: JV
+sunday 2019-09-15: LH
+monday 2019-09-16: NI
+tuesday 2019-09-17: CD
+wednesday 2019-09-18: NI
+thursday 2019-09-19: AP
+friday 2019-09-20: KE
+saturday 2019-09-21: LW
+sunday 2019-09-22: EL
+monday 2019-09-23: JM
+tuesday 2019-09-24: MA
+wednesday 2019-09-25: NI
+thursday 2019-09-26: LH
+friday 2019-09-27: TK
+saturday 2019-09-28: JM
+sunday 2019-09-29: KE
+monday 2019-09-30: CD
+tuesday 2019-10-01: LW
+wednesday 2019-10-02: JM
+thursday 2019-10-03: MA
+friday 2019-10-04: LW
+saturday 2019-10-05: MA
+sunday 2019-10-06: EL
+monday 2019-10-07: MY
+tuesday 2019-10-08: AP
+wednesday 2019-10-09: JV
+thursday 2019-10-10: MY
+friday 2019-10-11: JV
+saturday 2019-10-12: LH
+sunday 2019-10-13: TK
+monday 2019-10-14: CD
+tuesday 2019-10-15: EL
+wednesday 2019-10-16: TK
+thursday 2019-10-17: MA
+friday 2019-10-18: CD
+saturday 2019-10-19: TK
+sunday 2019-10-20: LH
+monday 2019-10-21: JV
+tuesday 2019-10-22: KE
+wednesday 2019-10-23: LW
+thursday 2019-10-24: AP
+friday 2019-10-25: AP
+saturday 2019-10-26: EL
+sunday 2019-10-27: JM
+monday 2019-10-28: NI
+tuesday 2019-10-29: AP
+wednesday 2019-10-30: KE
+thursday 2019-10-31: CD
+friday 2019-11-01: NI
+saturday 2019-11-02: KE
+sunday 2019-11-03: EL
+monday 2019-11-04: JV
+tuesday 2019-11-05: LH
+wednesday 2019-11-06: TK
+thursday 2019-11-07: LW
+friday 2019-11-08: MY
+saturday 2019-11-09: JM
+sunday 2019-11-10: MA
+monday 2019-11-11: JM
+tuesday 2019-11-12: MA
+wednesday 2019-11-13: NI
+thursday 2019-11-14: CD
+friday 2019-11-15: JV
+saturday 2019-11-16: MY
+sunday 2019-11-17: MY
+monday 2019-11-18: JM
+tuesday 2019-11-19: EL
+wednesday 2019-11-20: LW
+thursday 2019-11-21: AP
+friday 2019-11-22: EL
+saturday 2019-11-23: LW
+sunday 2019-11-24: MY
+monday 2019-11-25: JV
+tuesday 2019-11-26: NI
+saturday 2019-11-30: KE
+sunday 2019-12-01: TK
+monday 2019-12-02: LH
+tuesday 2019-12-03: LW
+wednesday 2019-12-04: TK
+thursday 2019-12-05: LH
+friday 2019-12-06: CD
+saturday 2019-12-07: LH
+sunday 2019-12-08: KE
+monday 2019-12-09: CD
+tuesday 2019-12-10: JV
+wednesday 2019-12-11: NI
+thursday 2019-12-12: MA
+friday 2019-12-13: MA
+saturday 2019-12-14: TK
+sunday 2019-12-15: JM
+monday 2019-12-16: AP
+tuesday 2019-12-17: KE
+wednesday 2019-12-18: EL
+thursday 2019-12-19: MY
+friday 2019-12-20: AP
+friday 2019-09-13 : MY (backup: MA, JM, TK, CD, LW, KE, NI, LH, EL, AP)
+saturday 2019-09-14 : JV (backup: AP, NI, EL, JM, MA, LH, CD, KE, LW, MY, TK)
+sunday 2019-09-15 : LH (backup: CD, KE, JM, AP, MY, EL, MA)
+monday 2019-09-16 : NI (backup: JM, CD, LW, LH, EL, MA, JV)
+tuesday 2019-09-17 : CD (backup: LW, EL, MA, KE, AP)
+wednesday 2019-09-18 : NI (backup: MA, JM, JV)
+thursday 2019-09-19 : AP (backup: MY, CD, KE, LH, MA, LW)
+friday 2019-09-20 : KE (backup: JM, MY, NI, LW, EL, JV, CD, AP, LH, TK, MA)
+saturday 2019-09-21 : LW (backup: MA, EL, KE, AP, CD, NI, LH, JM, TK)
+sunday 2019-09-22 : EL (backup: MA, KE, TK, CD, AP, JM)
+monday 2019-09-23 : JM (backup: LW, JV, MY, LH, CD, NI, MA, EL)
+tuesday 2019-09-24 : MA (backup: LH, EL, LW, AP, CD, KE)
+wednesday 2019-09-25 : NI (backup: TK, JV, KE)
+thursday 2019-09-26 : LH (backup: CD, EL)
+friday 2019-09-27 : TK (backup: LW, MY, CD, KE, MA, NI, EL, JV, AP, JM)
+saturday 2019-09-28 : JM (backup: NI, LW, MY, KE, MA, TK, LH, EL, CD, AP)
+sunday 2019-09-29 : KE (backup: JM, MA, CD, LH, AP, EL, TK)
+monday 2019-09-30 : CD (backup: LH, EL, NI, LW)
+tuesday 2019-10-01 : LW (backup: JV, KE, AP, EL, MY, CD)
+wednesday 2019-10-02 : JM (backup: MA, JV, NI, LH, KE, LW, TK)
+thursday 2019-10-03 : MA (backup: MY, KE, AP, LH, CD)
+friday 2019-10-04 : LW (backup: AP, JM, EL, MY, MA, CD, NI, TK, KE, LH, JV)
+saturday 2019-10-05 : MA (backup: TK, LH, JV, KE, NI, AP, CD, EL, JM, LW)
+sunday 2019-10-06 : EL (backup: CD, JM, KE, LH, MA)
+monday 2019-10-07 : MY (backup: LH, EL, JV, MA, NI, JM, CD)
+tuesday 2019-10-08 : AP (backup: KE, JV, LW, EL, CD, MY, LH, MA)
+wednesday 2019-10-09 : JV (backup: TK, NI, MA, MY, JM)
+thursday 2019-10-10 : MY (backup: MA, CD, LW, AP, LH, KE)
+friday 2019-10-11 : JV (backup: KE, CD, NI, TK, EL, MY, MA, LW, LH, JM, AP)
+saturday 2019-10-12 : LH (backup: MA, TK, KE, LW, EL, JV, CD, NI, JM, AP)
+sunday 2019-10-13 : TK (backup: MA, CD, JM, KE, EL, AP)
+monday 2019-10-14 : CD (backup: JM, EL, NI, LH, LW, MA, JV)
+tuesday 2019-10-15 : EL (backup: AP, MA, CD, LW)
+wednesday 2019-10-16 : TK (backup: JV, KE, JM, NI)
+thursday 2019-10-17 : MA (backup: KE, CD, LH, MY, LW)
+friday 2019-10-18 : CD (backup: TK, EL, MA, NI, LW, LH, JM, JV)
+saturday 2019-10-19 : TK (backup: EL, JM, LW, NI, CD, LH, MA)
+sunday 2019-10-20 : LH (backup: EL, CD, MY)
+monday 2019-10-21 : JV (backup: LH, CD, MY, NI, EL, JM)
+tuesday 2019-10-22 : KE (backup: CD, JV, AP, EL, LH)
+wednesday 2019-10-23 : LW (backup: JM, NI, MA, JV, KE, TK)
+thursday 2019-10-24 : AP (backup: LW, MY, CD, LH, MA, KE, JV)
+friday 2019-10-25 : AP (backup: JM, LH, MA, EL, TK, MY, JV, NI, KE, LW, CD)
+saturday 2019-10-26 : EL (backup: AP, LH, MA, KE, JV, NI, JM, LW, TK, CD)
+sunday 2019-10-27 : JM (backup: LH, AP, MA, TK, KE, EL, CD)
+monday 2019-10-28 : NI (backup: MY, EL, MA, CD, LH)
+tuesday 2019-10-29 : AP (backup: MA, KE, EL, LW, LH, CD, MY)
+wednesday 2019-10-30 : KE (backup: LW, MY, NI, TK, JV, MA)
+thursday 2019-10-31 : CD (backup: LW, AP, LH, MY, MA, KE)
+friday 2019-11-01 : NI (backup: MY, JM, EL, AP, MA, LW, JV, LH, TK, CD, KE)
+saturday 2019-11-02 : KE (backup: JV, LH, JM, CD, MA, EL, TK, NI, AP, LW)
+sunday 2019-11-03 : EL (backup: KE, LH, CD, AP, JM, TK, MA)
+monday 2019-11-04 : JV (backup: JM, CD, EL, NI)
+tuesday 2019-11-05 : LH (backup: CD, MY, AP, EL, LW, MA, KE)
+wednesday 2019-11-06 : TK (backup: JV, LW, JM, MY, NI, KE)
+thursday 2019-11-07 : LW (backup: LH, CD, MY)
+friday 2019-11-08 : MY (backup: EL, TK, CD, NI, MA, LW, LH, AP, KE)
+saturday 2019-11-09 : JM (backup: NI, AP, TK, KE, JV, LH, EL, LW, MA, CD)
+sunday 2019-11-10 : MA (backup: JM, CD, EL, LH, KE)
+monday 2019-11-11 : JM (backup: EL, NI, CD, JV, LH, MA)
+tuesday 2019-11-12 : MA (backup: KE, EL, LH, CD, AP)
+wednesday 2019-11-13 : NI (backup: KE, JM, MA, JV, TK)
+thursday 2019-11-14 : CD (backup: KE, AP, MA, LW)
+friday 2019-11-15 : JV (backup: JM, LW, NI, EL, KE, AP, CD, MA, MY, LH)
+saturday 2019-11-16 : MY (backup: CD, JV, NI, AP, KE, JM, LH, MA, EL)
+sunday 2019-11-17 : MY (backup: AP, MA, KE, LH, LW, EL, JM, CD)
+monday 2019-11-18 : JM (backup: LW, EL, MA, NI, LH, CD)
+tuesday 2019-11-19 : EL (backup: LH, MA, AP, LW, KE, CD)
+wednesday 2019-11-20 : LW (backup: KE, JM, TK, JV, MA, NI)
+thursday 2019-11-21 : AP (backup: LH, MA, KE, MY, CD)
+friday 2019-11-22 : EL (backup: JV, JM, LH, LW, MY, MA, KE, TK, NI, AP)
+saturday 2019-11-23 : LW (backup: AP, JM, KE, MY, JV, NI, EL, LH)
+sunday 2019-11-24 : MY (backup: AP, KE, LH, JV, EL)
+monday 2019-11-25 : JV (backup: NI, MY, EL, LH, KE, JM, LW)
+tuesday 2019-11-26 : NI (backup: AP, LW, EL, MY, JV, JM, LH, KE, MA)
+saturday 2019-11-30 : KE (backup: JV, NI, AP, LW, EL, JM)
+sunday 2019-12-01 : TK (backup: MA, NI, EL, LH, JM, KE, AP, LW)
+monday 2019-12-02 : LH (backup: JV, JM, NI, LW, CD, MA)
+tuesday 2019-12-03 : LW (backup: AP, CD, EL, JV, LH)
+wednesday 2019-12-04 : TK (backup: NI, MY, JV)
+thursday 2019-12-05 : LH (backup: CD, MY)
+friday 2019-12-06 : CD (backup: LH, NI, MA, JM, EL, TK, AP, JV, KE, MY, LW)
+saturday 2019-12-07 : LH (backup: CD, JM, MY, MA, NI, JV, LW, AP, TK, KE, EL)
+sunday 2019-12-08 : KE (backup: TK, JM, LW, LH, AP, NI, CD, MA, EL)
+monday 2019-12-09 : CD (backup: NI, JM, EL, MA, AP, KE, JV, LW, TK)
+tuesday 2019-12-10 : JV (backup: NI, MA, TK, AP, KE, CD)
+wednesday 2019-12-11 : NI (backup: MA, KE, EL, LH, TK, AP)
+thursday 2019-12-12 : MA (backup: AP, TK, JV, LW, NI)
+friday 2019-12-13 : MA (backup: JV, JM, LH, CD, AP, MY, KE, TK, EL, LW, NI)
+saturday 2019-12-14 : TK (backup: EL, JM, AP, MA, KE, LW, CD, JV, NI, LH, MY)
+sunday 2019-12-15 : JM (backup: KE, NI, EL, MA, LW, CD, AP, LH, JV, TK)
+monday 2019-12-16 : AP (backup: LW, LH, EL, CD, NI)
+tuesday 2019-12-17 : KE (backup: JV, NI, AP, CD, MA, TK, EL)
+wednesday 2019-12-18 : EL (backup: CD, LH, NI, JV, JM, KE, LW)
+thursday 2019-12-19 : MY (backup: KE, AP, EL, TK, LH, CD, LW, NI)
+friday 2019-12-20 : AP (backup: MY, JV, CD, LH, MA, TK, JM, KE, EL, NI, LW)
